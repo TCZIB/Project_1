@@ -1,0 +1,26 @@
+<html>
+{% extends "layout.html" %}
+{% block page_contents %}
+    <form method = 'POST' action=''>
+        {{ form.hidden_tag() }}
+        <table style="width:50%">
+            <tr>
+                <td align=Right> {{ form.first_name.label }} </td>
+                <td> {{ form.first_name }} </td>
+            </tr>
+            <tr>
+                <td align="Right"> {{ form.age.label }} </td>
+                <td> {{ form.age }} </td>
+            </tr>
+            <tr>
+                <td align="Right"> {{ form.birthdate.label }} </td>
+                <td> {{ form.birthdate }} </td>
+            </tr>
+        </table>
+        <br>
+        {{ form.submit }}
+        <br>
+        {{ message }}
+    </form>
+{% endblock page_contents %}
+</html>
