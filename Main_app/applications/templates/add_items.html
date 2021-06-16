@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title> Adding a food item </title> 
+    </head>
+{% extends "layout.html" %}
+{% block page_contents %}
+    <form method = 'POST' action=''>
+        {{ form.hidden_tag() }}
+        <div>
+        <table style="width:50%">
+            <tr>
+                <td class=Right> {{ form.food_item.label }} </td>
+                <td> {{ form.food_item }} </td>
+            </tr>
+            <tr>
+                <td class="Right"> {{ form.portion_weight.label }} </td>
+                <td> {{ form.portion_weight }} </td>
+            </tr>
+            <tr>
+                <td class="Right"> {{ form.calories.label }} </td>
+                <td> {{ form.calories }} </td>
+            </tr>
+            <tr>
+                <td>
+                {% if form.portion_weight.errors %}
+                    {% for error in form.portion_weight.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+                <td>
+                <td class="Centre"> {{ form.submit }}</td>
+            </tr>
+        </table>
+            <br>
+            {{ message }}
+        </div>
+    </form>
+{% endblock page_contents %}
+</html>
