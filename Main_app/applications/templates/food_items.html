@@ -1,0 +1,35 @@
+<html>
+    
+    <style>
+    </style>
+
+    <head>
+        <title> Adding a food item </title> 
+    </head>
+    
+{% extends "layout.html" %}
+
+{% block page_contents %}
+    
+    <div>
+        <table style="width:50%" class="centre">
+            <tr>
+                <th align="Centre"> ID </th>
+                <th align="Centre"> Name </th> 
+                <th align="Centre"> Portion (g) </th>
+                <th align="Centre"> Calories </th>
+            </tr>
+            {% for item in items %}
+            <tr>
+                <td align="Centre"> {{ item.id }} </td>
+                <td align="Centre"> {{ item.food_name }} </td>
+                <td align="Centre"> {{ item.item_weight }}g</td>
+                <td align="Centre"> {{ item.item_calories }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock page_contents %}
+
+</html>

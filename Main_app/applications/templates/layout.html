@@ -1,11 +1,22 @@
 <html>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    
     <body>
-        <!-- Navigation layout, to be replaced with buttons -->
-
-        <p> Welcome ! </p>
-
+        <div>
+            <menu> Navigation Bar  </menu>
+            <table>
+                <tr>
+                    <td> <a href="{{ url_for('home_page') }}"> Home </a> </td>
+                    <td> <a href="{{ url_for('view_meals') }}"> View Meals </a> </td>
+                    <td> <a href="{{ url_for('food_items') }}"> View Food Items </a> </td>
+                    <td> <a href="{{ url_for('add_item_page') }}"> Add Food Items </a> </td>
+                </tr>
+            </table>
+        </div>
+        <br>
         {% block page_contents %}
         {% endblock page_contents %}
-
+        <br>
     </body>
 </html>

@@ -1,11 +1,15 @@
 from applications import app, db
 from applications.models import FoodItems
 from applications.forms import Food_Item_Form
-from flask import render_template, request
+from flask import render_template, request, url_for
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField, DateField, SubmitField
 from wtforms.validators import ValidationError
 
+@app.route('/')
+def home_page():
+
+    return render_template('index.html')
 
 @app.route('/add_item', methods = ['GET','POST'])
 def add_item_page():
@@ -23,15 +27,17 @@ def add_item_page():
         db.session.commit()
 
         message = "Item added!"
+
+    if form.validate_on_submit():
+        print("Done")
   
-    
-    return render_template('add_items.html', form = form, message = message)
+    return render_template('add_items.html', form = form, message = message, items = FoodItems.query.all())
 
-@app.route('/read')
-def read():
-    all_food_items = FoodItems.query.all()
-    food_string = ""
-    for item in all_food_items:
-        food_string += str(item.id) + "<br>" + str(item.food_name) + "<br>" + str(item.item_weight) + "<br>" + str(item.item_calories)
+@app.route('/view_meals')
+def view_meals():
+    return "Meals"
 
-    return food_string
+@app.route('/food_items')
+def food_items():
+
+    return render_template('food_items.html', items = FoodItems.query.all())

@@ -29,10 +29,29 @@
                 {% endif %}
                 <td>
                 <td class="Centre"> {{ form.submit }}</td>
+                <td> {{form.update}} </td>
             </tr>
         </table>
             <br>
             {{ message }}
+        </div>
+        <div>
+            <table style="width:50%" class="centre">
+                <tr>
+                    <th align="Centre"> ID </th>
+                    <th align="Centre"> Name </th> 
+                    <th align="Centre"> Portion (g) </th>
+                    <th align="Centre"> Calories </th>
+                </tr>
+                {% for item in items %}
+                <tr>
+                    <td align="Centre"> {{ item.id }} </td>
+                    <td align="Centre"> {{ item.food_name }} </td>
+                    <td align="Centre"> {{ item.item_weight }}g</td>
+                    <td align="Centre"> {{ item.item_calories }} </td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
     </form>
 {% endblock page_contents %}

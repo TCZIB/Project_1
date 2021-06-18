@@ -1,0 +1,19 @@
+menu {
+    text-align: center;
+    font-family: "sans-serif", Helvetica;
+}
+table,
+table td {
+  border: 1px solid #48bdcc;
+
+}
+td {
+  height: 80px;
+  width: 160px;
+  text-align: center;
+  vertical-align: middle;
+}
+.centre {
+  margin-left: auto;
+  margin-right: auto;
+}

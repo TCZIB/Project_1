@@ -7,6 +7,7 @@ class Food_Item_Form(FlaskForm):
     portion_weight = IntegerField('Weight (g): ', validators=[DataRequired()])
     portion_calories = IntegerField('Calories: ', validators=[DataRequired()])
     submit = SubmitField()
+    update = SubmitField()
 
     def validate_portion_weight(self, portion_weight):
         try:
